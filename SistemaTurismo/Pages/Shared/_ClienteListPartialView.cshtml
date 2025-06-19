@@ -1,0 +1,27 @@
+@model IEnumerable<SistemaTurismo.Model.Cliente>
+
+<h4 class="mt-4">Lista de Clientes</h4>
+<p>Exercício 7 - Roteamento na URL</p>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>@cliente.Id</td>
+            <td>@cliente.Nome</td>
+            <td>
+                <a asp-page="/ClienteDetails" asp-route-id="@cliente.Id" class="btn btn-sm btn-info">
+                    Ver Cliente
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

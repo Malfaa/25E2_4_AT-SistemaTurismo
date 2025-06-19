@@ -1,0 +1,53 @@
+@page
+@model SistemaTurismo.Pages.CreatePacote
+@{
+    ViewData["Title"] = "Criar Novo Pacote Turístico";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p class="lead">Preencha os dados abaixo para criar um novo pacote.</p>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Input.Titulo" class="form-label"></label>
+                    <input asp-for="Input.Titulo" class="form-control" />
+                    <span asp-validation-for="Input.Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-group mb-3">
+                        <label asp-for="Input.DataInicio" class="form-label"></label>
+                        <input asp-for="Input.DataInicio" class="form-control" />
+                        <span asp-validation-for="Input.DataInicio" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 form-group mb-3">
+                        <label asp-for="Input.Preco" class="form-label"></label>
+                        <input asp-for="Input.Preco" class="form-control" type="number" step="0.01" />
+                        <span asp-validation-for="Input.Preco" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Input.CapacidadeMaxima" class="form-label"></label>
+                    <input asp-for="Input.CapacidadeMaxima" class="form-control" type="number" />
+                    <span asp-validation-for="Input.CapacidadeMaxima" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary">Salvar Pacote</button>
+                    <a asp-page="./Index" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

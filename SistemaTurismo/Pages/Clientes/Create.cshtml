@@ -1,0 +1,34 @@
+@page
+@model SistemaTurismo.Pages.Clientes.CreateModel
+
+@{
+    ViewData["Title"] = "Criar Novo Cliente";
+        }
+        
+        <!DOCTYPE html>
+
+        <h4>@ViewData["Title"]</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6"> 
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Input.Nome" class="form-label"></label>
+                        <input asp-for="Input.Nome" class="form-control" />
+                        <span asp-validation-for="Input.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Input.Email" class="form-label"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Criar</button>
+                        <a asp-page="Index" class="btn btn-outline-secondary">Voltar para a Lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
